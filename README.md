@@ -10,7 +10,7 @@ Installing and setting up gphoto2 for Python
 - `$ sudo pip install -v gphoto2`
 
 Installing and setting up Google Photos API
-- `$ pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+- `$ pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
 
 Installing and setting up gphoto2 + libgphoto2 for terminal
 - `$ sudo apt-get install libltdl-dev libusb-dev libusb-1.0 libexif-dev libpopt-dev`

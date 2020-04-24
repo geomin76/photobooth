@@ -2,7 +2,9 @@ import gphoto2 as gp
 import signal, os, subprocess, sys
 from time import sleep
 import requests
-from Google import *
+from Google import Create_Service
+import pickle
+
 
 
 # Kill the gphoto2 process whenever we turn on the camera or reboot the Raspberry Pi
@@ -57,11 +59,10 @@ def cameraInfo():
     camera.exit()
 
 def googlePhotosAuth():
-    API_NAME = 'photosLibrary'
+    API_NAME = 'photoslibrary'
     API_VERSION = 'v1'
     CLIENT_SECRET_FILE = 'client_secret.json'
-    SCOPES = [
-        'https://www.googleapis.com/auth/photosLibrary',
-        'https://www.googleapis.com/auth/photosLibrary.sharing'
-    ]
-    serivce = Create_Service(CLIENT_SECRET_FILE, API_NAME, API_VERSION, SCOPES)
+    SCOPES = ['https://www.googleapis.com/auth/photoslibrary','https://www.googleapis.com/auth/photoslibrary.sharing']
+    service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
+    token = pickle.load(open('token_photoslibrary_v1.pickle', 'rb'))
+    return token.token
