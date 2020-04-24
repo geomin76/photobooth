@@ -1,0 +1,19 @@
+<html>
+    <body>
+        <h1>Image was taken!</h1>
+        {% for img in files %}
+            <img style="width:300px;" src={{ img }}>
+        {% endfor %}
+        <form action="/emailPhoto" method="POST">
+            <label for="email">Email: </label>
+            <input type="text" id="email" name="email">
+            <input type="submit" value="Send photos to email!">
+        </form>
+        <form action="/takePhoto">
+            <button type="submit">Retake?</button>
+        </form>
+        <form action="/">
+            <button type="submit">Back to Main Menu</button>
+        </form>
+    </body>
+</html>
