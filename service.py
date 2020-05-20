@@ -87,7 +87,7 @@ def uploadHelper(token):
     tokens = []
     image_dir = os.path.join(os.getcwd(), 'static')
     for content in files:
-        print(content)
+        print(content) 
         image_file = os.path.join(image_dir, content)
         response = upload_image(image_file, content, token)
         tokens.append(response.content.decode('utf-8'))
@@ -104,39 +104,3 @@ def uploadHelper(token):
     service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 
     upload_response = service.mediaItems().batchCreate(body=request_body).execute()
-    
-
-
-    # image_dir = os.path.join(os.getcwd(), 'static')
-    # upload_url = 'https://photoslibrary.googleapis.com/v1/uploads'
-    # headers = {
-    #     'Authorization': 'Bearer ' + token,
-    #     'Content-type': 'application/octet-stream',
-    #     'X-Goog-Upload-Protocol': 'raw'
-    # }
-    # files = os.listdir("./static")
-    # for content in files:
-    #     image_file = os.path.join(image_dir, content)
-    #     headers['X-Goog-Upload-File-Name'] = content
-
-    #     img = open(image_file, 'rb').read()
-    #     response = requests.post(upload_url, data=img, headers=headers)
-
-    #     request_body = {
-    #         'newMediaItems': [
-    #             {
-    #                 'description': 'From Photobooth App',
-    #                 'simpleMediaItem': {
-    #                     'uploadToken': response.content.decode('utf-8')
-    #                 }
-    #             }
-    #         ]
-    #     }
-
-    #     API_NAME = 'photoslibrary'
-    #     API_VERSION = 'v1'
-    #     CLIENT_SECRET_FILE = 'client_secret.json'
-    #     SCOPES = ['https://www.googleapis.com/auth/photoslibrary','https://www.googleapis.com/auth/photoslibrary.sharing']
-    #     service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
-
-    #     upload_response = service.mediaItems().batchCreate(body=request_body).execute()
