@@ -44,9 +44,13 @@ def test():
     }
     return render_template("album.html")
 
+@app.route("/prePhotoWithAlbum")
+def prePhotoWithAlbum():
+    return render_template("prePhotoWithAlbum.html")
+
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
-    #upload
+    uploadHelper(session['tokens'].get('access_token'))
     return render_template("uploaded.html")
 
 
