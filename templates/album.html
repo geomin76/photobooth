@@ -1,8 +1,10 @@
 <html>
     <body>
-        <h1>Add your album name</h1>
-        <form action="/takePhoto">
-            <button type="submit">Take your photo!</button>
+        <h1>Create your album</h1>
+        <form method="POST" action="{{ url_for('album') }}">
+            <label for="name">Name for your album</label>
+            <input type="string" id="name" name="name" required>
+            <button type="submit">Create the album</button>
         </form>
         <!-- countdown javascript -->
     </body>

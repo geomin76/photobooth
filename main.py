@@ -11,17 +11,18 @@ def main():
     listAndDeleteImgs()
     return render_template("intro.html")
 
-@app.route("/album")
+@app.route("/album", methods=['GET','POST'])
 def album():
+    name = request.form['name']
     url = "https://photoslibrary.googleapis.com/v1/albums"
     myobj = {"album": {
-        "title": "test"
+        "title": name
     }}
     x = requests.post(url, json=myobj, headers = {
         "Content-type": "application/json",
         "Authorization": "Bearer " + session['tokens'].get('access_token')
         })
-    return render_template("album.html")
+    return render_template("prePhoto.html", name=name)
 
 
 # Make sure camera is on!
@@ -34,12 +35,6 @@ def takePhoto():
     return render_template("index.html", files=files)
 
 
-@app.route("/emailPhoto", methods=['GET', 'POST'])
-def emailPhoto():
-    email = request.form['email'] 
-    listAndDeleteImgs()
-    return redirect("/")
-
 
 @app.route("/googleAuth")
 def test():
@@ -47,7 +42,12 @@ def test():
     session['tokens'] = {
         'access_token': token
     }
-    return redirect(url_for('album'))
+    return render_template("album.html")
+
+@app.route("/upload", methods=['GET', 'POST'])
+def upload():
+    #upload
+    return render_template("uploaded.html")
 
 
 if __name__ == '__main__':
