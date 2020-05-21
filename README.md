@@ -36,14 +36,15 @@ If authentcation is successful, you should see a file called `token_photoslibrar
 And after that, your app is ready to roll! You can create an album, take photos and they'll show up in your Google Photos album you created!
 
 Cheers!
-<pre>
-<pre>
-<pre>
-<pre>
 
 (Don't forget to set up your camera with the settings you want, in manual focus, and leave your camera "on" forever so it doesn't sleep)
 
-If successful, you can run `$ gphoto2 --auto-detect` and it should pull up this:
+<br/>
+<br/>
+<br/>
+<br/>
+
+If successful on gphoto2 installation, you can run `$ gphoto2 --auto-detect` and it should pull up this:
 ~~~
 Model                          Port                                            
 ----------------------------------------------------------
