@@ -27,11 +27,19 @@ Now Google Photos API setup:
 - Check out this YouTube tutorial on how to get your client secret [here](https://youtu.be/dkxcd2Q3Qwo?t=393)
 - Once you have downloaded the client secret, rename it to `client_secret.json` and move it to this directory
 
+<br>
+
 Now to run the application! Run `$ python main.py` and begin the authentication!
+
+<br>
 
 After you click the button "let's begin," check your terminal! You should see a `Please visit this URL to authorize this application:`. Visit this URL to get Google Photos authentication.
 
+<br>
+
 If authentication is successful, you should see a file called `token_photoslibrary_v1.pickle` in your directory. This is your "pickle" file that gives you Google Photos access! If you delete the pickle, you'll have to go through authentication again!
+
+<br>
 
 And after that, your app is ready to roll! You can create an album, take photos and they'll show up in your Google Photos album you created!
 
