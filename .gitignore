@@ -4,3 +4,5 @@ client_secret.json
 token_photoslibrary_v1.pickle
 __pycache__/
 __pycache__
+venv
+venv/

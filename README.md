@@ -3,14 +3,47 @@
 Creating a photo booth with Raspberry Pi 4 Model B + Python/Flask
 
 ### Setup
-Installing Flask
-- $ `pip install Flask`
+Here's how to setup and run photobooth
+- `$ git clone https://github.com/geomin76/photobooth.git`
+- `$ cd photobooth`
 
-Installing and setting up gphoto2 for Python
-- `$ sudo pip install -v gphoto2`
+To set up the virtual environment
+- `$ python3 -m venv venv`
+- `$ virtualenv venv`
+- `$ source venv/bin/activate`
 
-Installing and setting up Google Photos API
+To now install dependencies:
+- `$ pip install requests`
+- `$ pip install Flask`
+- `$ sudo apt install gphoto2 libgphoto2-dev`
+- `$ pip install gphoto2`
 - `$ pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+
+Create a directory called `static`, this is where the photos taken will be stored
+- `$ mkdir static`
+
+Now Google Photos API setup:
+- Check out this YouTube tutorial on how to get your client secret [here](https://youtu.be/dkxcd2Q3Qwo?t=393)
+- Once you have downloaded the client secret, rename it to `client_secret.json` and move it to this directory
+
+Now to run the application! Run `$ python main.py` and begin the authentication!
+
+After you click the button "let's begin," check your terminal! You should see a `Please visit this URL to authorize this application:`. Visit this URL to get Google Photos authentication.
+
+In your directory, you should see a file called `token_photoslibrary_v1.pickle. This is your "pickle" file that gives you Google Photos access! If you delete the pickle, you'll have to go through authentication again!
+
+And after that, your app is ready to roll! You can create an album, take photos and they'll show up in your Google Photos album you created!
+
+Cheers!
+
+(Don't forget to set up your camera with the settings you want, in manual focus, and leave your camera "on" forever so it doesn't sleep)
+
+
+
+
+
+
+
 
 Installing and setting up gphoto2 + libgphoto2 for terminal
 - `$ sudo apt-get install libltdl-dev libusb-dev libusb-1.0 libexif-dev libpopt-dev`
