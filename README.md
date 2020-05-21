@@ -15,6 +15,7 @@ To set up the virtual environment
 To now install dependencies:
 - `$ pip install requests`
 - `$ pip install Flask`
+- `$ sudo apt-get install libltdl-dev libusb-dev libusb-1.0 libexif-dev libpopt-dev`
 - `$ sudo apt install gphoto2 libgphoto2-dev`
 - `$ pip install gphoto2`
 - `$ pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
@@ -37,34 +38,6 @@ And after that, your app is ready to roll! You can create an album, take photos 
 Cheers!
 
 (Don't forget to set up your camera with the settings you want, in manual focus, and leave your camera "on" forever so it doesn't sleep)
-
-
-
-
-
-
-
-
-Installing and setting up gphoto2 + libgphoto2 for terminal
-- `$ sudo apt-get install libltdl-dev libusb-dev libusb-1.0 libexif-dev libpopt-dev`
-- `$ wget http://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.7/libgphoto2-2.5.7.tar.gz`
-- `$ wget http://downloads.sourceforge.net/project/gphoto/gphoto/2.5.6/gphoto2-2.5.6.tar.gz`
-
-Installing libgphoto2
-
-- `$ tar -xvzf libgphoto2-2.5.7.tar.gz`
-- `$ cd libgphoto2-2.5.7`
-- `$ ./configure`
-- `$ make` (this may take a while)
-- `$ sudo make install`
-
-Installing gphoto2
-
-- `$ tar -xvzf gphoto2-2.5.6.tar.gz`
-- `$ cd gphoto2-2.5.6`
-- `$ ./configure`
-- `$ make`
-- `$ sudo make install`
 
 If successful, you can run `$ gphoto2 --auto-detect` and it should pull up this:
 ~~~
