@@ -25,8 +25,13 @@ def Create_Service(client_secret_file, api_name, api_version, *scopes):
             cred.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(CLIENT_SECRET_FILE, SCOPES)
-            cred = flow.run_local_server()
- 
+            cred = flow.run_local_server(
+                host='localhost',
+                port=8080,
+                authorization_prompt_message='Please visit this URL to authorize this application: {url}',
+                success_message='The auth flow is complete; you may close this window and head back to the application.',
+                open_browser=True
+            )
         with open(pickle_file, 'wb') as token:
             pickle.dump(cred, token)
  

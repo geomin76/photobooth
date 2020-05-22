@@ -33,7 +33,7 @@ Now to run the application! Run `$ python main.py` and begin the authentication!
 
 <br>
 
-After you click the button "let's begin," check your terminal! You should see a `Please visit this URL to authorize this application:`. Visit this URL to get Google Photos authentication.
+After you click the button "let's begin," check your terminal! You should see a `Please visit this URL to authorize this application:`. Visit this URL to get Google Photos authentication. The URL may open automatically, but you may have to open the URL manually.
 
 <br>
 

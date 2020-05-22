@@ -2,7 +2,7 @@ import gphoto2 as gp
 import signal, os, subprocess, sys
 from time import sleep
 import requests
-from Google import Create_Service
+from googleService import Create_Service
 import pickle
 
 
