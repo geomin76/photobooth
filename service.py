@@ -6,7 +6,6 @@ from Google import Create_Service
 import pickle
 
 
-
 # Kill the gphoto2 process whenever we turn on the camera or reboot the Raspberry Pi
 def killGPhoto2():
     p = subprocess.Popen(['ps', '-A'], stdout=subprocess.PIPE)
@@ -82,20 +81,22 @@ def upload_image(image_path, upload_file_name, token):
     return response
 
 
-def uploadHelper(token):
+def uploadHelper(token, album_id):
     files = os.listdir("./static")
     tokens = []
+    ids = []
     image_dir = os.path.join(os.getcwd(), 'static')
     for content in files:
         print(content) 
         image_file = os.path.join(image_dir, content)
         response = upload_image(image_file, content, token)
         tokens.append(response.content.decode('utf-8'))
+
+    #adding to your Google Photos gallery
     new_media_items = [{'simpleMediaItem': {'uploadToken': tok}}for tok in tokens]
     request_body = {
         'newMediaItems': new_media_items
     }
-
 
     API_NAME = 'photoslibrary'
     API_VERSION = 'v1'
@@ -105,22 +106,12 @@ def uploadHelper(token):
 
     upload_response = service.mediaItems().batchCreate(body=request_body).execute()
 
+    for content in upload_response.get('newMediaItemResults'):
+        ids.append((content.get('mediaItem')).get('id'))
 
-def getAlbums():
-    API_NAME = 'photoslibrary'
-    API_VERSION = 'v1'
-    CLIENT_SECRET_FILE = 'client_secret.json'
-    SCOPES = ['https://www.googleapis.com/auth/photoslibrary','https://www.googleapis.com/auth/photoslibrary.sharing']
-    service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
+    request_body_2 = {
+        'mediaItemIds': ids
+    }
 
-    album_response = service.albums().list(pageSize=50, excludeNonAppCreatedData=False).execute()
-
-    listAlbums = album_response.get('albums')
-    # print(len(listAlbums))
-    # print(listAlbums[len(listAlbums) - 1])
-    new_list = []
-    nextPageToken = album_response.get('nextPageToken')
-    while nextPageToken:
-        response = service.albums().list(pageSize=50, excludeNonAppCreatedData=False, pageToken=nextPageToken).execute()
-        new_list.append(response.get('albums'))
-        nextPageToken = response.get('nextPageToken')
+    if album_id:
+        new_response = service.albums().batchAddMediaItems(albumId=album_id, body=request_body_2).execute()

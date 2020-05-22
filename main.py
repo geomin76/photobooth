@@ -6,6 +6,7 @@ app = Flask(__name__)
 
 app.secret_key = "helloworld"
 
+
 @app.route("/")
 def main():
     listAndDeleteImgs()
@@ -22,6 +23,7 @@ def album():
         "Content-type": "application/json",
         "Authorization": "Bearer " + session['tokens'].get('access_token')
         })
+    session['username'] = (x.json()['id'])
     return render_template("prePhoto.html", name=name)
 
 
@@ -48,15 +50,11 @@ def test():
 def prePhotoWithAlbum():
     return render_template("prePhotoWithAlbum.html")
 
+
 @app.route("/upload", methods=['GET', 'POST'])
 def upload():
-    uploadHelper(session['tokens'].get('access_token'))
+    uploadHelper(session['tokens'].get('access_token'), session['username'])
     return render_template("uploaded.html")
-
-@app.route("/albums")
-def albums():
-    getAlbums()
-    return "Hello"
 
 
 if __name__ == '__main__':
