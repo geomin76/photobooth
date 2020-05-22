@@ -56,6 +56,8 @@ def upload():
     uploadHelper(session['tokens'].get('access_token'), session['username'])
     return render_template("uploaded.html")
 
+# new user code here (delete pickle and redirect to "/")
+
 
 if __name__ == '__main__':
     app.run(host='localhost', port=5000, debug=True)
