@@ -104,3 +104,23 @@ def uploadHelper(token):
     service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
 
     upload_response = service.mediaItems().batchCreate(body=request_body).execute()
+
+
+def getAlbums():
+    API_NAME = 'photoslibrary'
+    API_VERSION = 'v1'
+    CLIENT_SECRET_FILE = 'client_secret.json'
+    SCOPES = ['https://www.googleapis.com/auth/photoslibrary','https://www.googleapis.com/auth/photoslibrary.sharing']
+    service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
+
+    album_response = service.albums().list(pageSize=50, excludeNonAppCreatedData=False).execute()
+
+    listAlbums = album_response.get('albums')
+    # print(len(listAlbums))
+    # print(listAlbums[len(listAlbums) - 1])
+    new_list = []
+    nextPageToken = album_response.get('nextPageToken')
+    while nextPageToken:
+        response = service.albums().list(pageSize=50, excludeNonAppCreatedData=False, pageToken=nextPageToken).execute()
+        new_list.append(response.get('albums'))
+        nextPageToken = response.get('nextPageToken')
