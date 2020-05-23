@@ -20,6 +20,9 @@
         </form>
         <br>
         <form action="/upload">
-            <button class="button" type="submit">Upload photos</button>
+            <button class="button ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" type="submit">
+                Upload photos
+                <div class="ld ld-ring ld-spin"></div>
+            </button>
         </form>
 {% endblock %}
