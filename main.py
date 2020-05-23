@@ -12,6 +12,7 @@ def main():
     listAndDeleteImgs()
     return render_template("intro.html")
 
+
 @app.route("/album", methods=['GET','POST'])
 def album():
     name = request.form['name']
@@ -56,7 +57,11 @@ def upload():
     uploadHelper(session['tokens'].get('access_token'), session['username'])
     return render_template("uploaded.html")
 
-# new user code here (delete pickle and redirect to "/")
+
+@app.route("/newUser", methods=['GET', 'POST'])
+def newUser():
+    os.remove('token_photoslibrary_v1.pickle')
+    return redirect(url_for('main'))
 
 
 if __name__ == '__main__':
