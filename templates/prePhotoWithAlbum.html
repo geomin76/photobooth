@@ -5,7 +5,10 @@
         <h1>Let's take more photos!</h1>
         <br>
         <form action="/takePhoto">
-            <button class="button" type="submit">Take your photo!</button>
+            <button class="button ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" type="submit">
+                Take your photo!
+                <div class="ld ld-ring ld-spin"></div>
+            </button>
         </form>
         <!-- countdown javascript -->
 {% endblock %}

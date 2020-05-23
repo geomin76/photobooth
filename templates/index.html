@@ -9,7 +9,10 @@
         <br>
         <br>
         <form action="/takePhoto">
-            <button class="button" type="submit">Retake?</button>
+            <button class="button ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" type="submit">
+                Retake?
+                <div class="ld ld-ring ld-spin"></div>
+            </button>
         </form>
         <form action="/prePhotoWithAlbum">
             <button class="button" type="submit">Back to Main Menu</button>
