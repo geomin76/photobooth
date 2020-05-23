@@ -7,18 +7,16 @@
             <img style="width:300px;" src={{ img }}>
         {% endfor %}
         <br>
+        <br>
         <form action="/takePhoto">
             <button class="button" type="submit">Retake?</button>
         </form>
-        <br>
         <form action="/prePhotoWithAlbum">
             <button class="button" type="submit">Back to Main Menu</button>
         </form>
-        <br>
         <form action="/googleAuth">
             <button class="button" type="submit">New Album? Click here</button>
         </form>
-        <br>
         <form action="/upload">
             <button class="button ld-over-full" onclick="this.classList.toggle('running'); window.location.reload();" type="submit">
                 Upload photos
