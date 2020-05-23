@@ -2,6 +2,8 @@
 
 Creating a photo booth with Raspberry Pi 4 Model B + Python/Flask
 
+![](demo.gif)
+
 ### Setup
 Here's how to setup and run photobooth
 - `$ git clone https://github.com/geomin76/photobooth.git`
