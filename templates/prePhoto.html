@@ -1,9 +1,10 @@
-<html>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
+        <br>
         <p>There is an album called {{ name }} in your Google Photos account.</p>
         <form action="/takePhoto">
-            <button type="submit">Take your photo!</button>
+            <button class="button" type="submit">Take your photo!</button>
         </form>
         <!-- countdown javascript -->
-    </body>
-</html>
+{% endblock %}

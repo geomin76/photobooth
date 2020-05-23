@@ -1,11 +1,14 @@
-<html>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
+        <br>
         <h1>Create your album</h1>
         <form method="POST" action="{{ url_for('album') }}">
             <label for="name">Name for your album</label>
             <input type="string" id="name" name="name" required>
-            <button type="submit">Create the album</button>
+            <br>
+            <br>
+            <button class="button" type="submit">Create the album</button>
         </form>
         <!-- countdown javascript -->
-    </body>
-</html>
+{% endblock %}

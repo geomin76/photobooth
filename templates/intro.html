@@ -1,15 +1,14 @@
-<html>
-    <body>
-        <h1>Hello! Welcome to PhotoBooth!</h1>
-        <!-- <form action="/takePhoto">
-            <button type="submit">Click here to get get your photo taken!</button>
-        </form> -->
+{% extends "base.html" %}
+
+{% block content %}
+        <br>
+        <h1>Welcome to PhotoBooth!</h1>
         <form action="/googleAuth">
-            <button type="submit">
+            <button class="button" type="submit">
                 Let's begin
             </button>
         </form>
+        <a href="https://github.com/geomin76/photobooth" target="_blank"><img style="width:50px;" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"/></a>
         <!-- have a theme/text on photobooth -->
         <!-- also a 3,2,1 screen for photos -->
-    </body>
-</html>
+{% endblock %}

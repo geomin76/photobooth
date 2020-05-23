@@ -1,8 +1,9 @@
-<html>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
+
         <p>Uploaded!</p>
         <form action="/prePhotoWithAlbum">
-            <button type="submit">Let's take more photos!</button>
+            <button class="button" type="submit">Let's take more photos!</button>
         </form>
-    </body>
-</html>
+{% endblock %}

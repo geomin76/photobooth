@@ -1,28 +1,25 @@
-<html>
-    <body>
+{% extends "base.html" %}
+
+{% block content %}
+        <br>
         <h1>Image was taken!</h1>
         {% for img in files %}
             <img style="width:300px;" src={{ img }}>
         {% endfor %}
-        <form action="/upload" method="POST">
-
-        </form>
         <br>
         <form action="/takePhoto">
-            <button type="submit">Retake?</button>
+            <button class="button" type="submit">Retake?</button>
         </form>
         <br>
         <form action="/prePhotoWithAlbum">
-            <button type="submit">Back to Main Menu</button>
+            <button class="button" type="submit">Back to Main Menu</button>
         </form>
         <br>
-        <form action="/">
-            <p>Want a new Album?</p>
-            <button type="submit">Click here</button>
+        <form action="/googleAuth">
+            <button class="button" type="submit">New Album? Click here</button>
         </form>
         <br>
         <form action="/upload">
-            <button type="submit">Upload photos</button>
+            <button class="button" type="submit">Upload photos</button>
         </form>
-    </body>
-</html>
+{% endblock %}
