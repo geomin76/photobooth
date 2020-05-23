@@ -63,7 +63,6 @@ def googlePhotosAuth():
     CLIENT_SECRET_FILE = 'client_secret.json'
     SCOPES = ['https://www.googleapis.com/auth/photoslibrary','https://www.googleapis.com/auth/photoslibrary.sharing']
     service = Create_Service(CLIENT_SECRET_FILE,API_NAME,API_VERSION,SCOPES)
-    print(service)
     token = pickle.load(open('token_photoslibrary_v1.pickle', 'rb'))
     return token.token
 
