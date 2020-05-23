@@ -38,15 +38,17 @@ def getImgs():
     files = os.listdir("./static")
     filesList = []
     for content in files:
-        filesList.append("/static/" + str(content))
-    return filesList
+        if os.path.isfile('./static/' + str(content)):
+            filesList.append(str(content))
+    return filesList 
 
 
 def listAndDeleteImgs():
     files = os.listdir("./static")
     for content in files:
-        os.remove("./static/" + str(content))
-        print("deleted " + str(content))
+        if os.path.isfile('./static/' + str(content)):
+            os.remove("./static/" + str(content))
+            print("deleted " + str(content))
 
 
 def cameraInfo():
@@ -87,10 +89,11 @@ def uploadHelper(token, album_id):
     ids = []
     image_dir = os.path.join(os.getcwd(), 'static')
     for content in files:
-        print(content) 
-        image_file = os.path.join(image_dir, content)
-        response = upload_image(image_file, content, token)
-        tokens.append(response.content.decode('utf-8'))
+        if os.path.isfile("./static/" + content):
+            print(content) 
+            image_file = os.path.join(image_dir, content)
+            response = upload_image(image_file, content, token)
+            tokens.append(response.content.decode('utf-8'))
 
     #adding to your Google Photos gallery
     new_media_items = [{'simpleMediaItem': {'uploadToken': tok}}for tok in tokens]

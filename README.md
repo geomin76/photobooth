@@ -22,9 +22,6 @@ To now install dependencies:
 - `$ pip install gphoto2`
 - `$ pip3 install --upgrade google-api-python-client google-auth-httplib2 google-auth-oauthlib`
 
-Create a directory called `photos`, this is where the photos taken will be stored
-- `$ mkdir photos`
-
 Now Google Photos API setup:
 - Check out this YouTube tutorial on how to get your client secret [here](https://youtu.be/dkxcd2Q3Qwo?t=393)
 - Once you have downloaded the client secret, rename it to `client_secret.json` and move it to this directory

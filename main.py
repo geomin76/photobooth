@@ -40,7 +40,7 @@ def takePhoto():
 
 
 @app.route("/googleAuth")
-def test():
+def googleAuth():
     token = googlePhotosAuth()
     session['tokens'] = {
         'access_token': token

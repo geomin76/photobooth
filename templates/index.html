@@ -4,7 +4,7 @@
         <br>
         <h1>Image was taken!</h1>
         {% for img in files %}
-            <img style="width:300px;" src={{ img }}>
+            <img style="width:300px;" src={{ url_for('static', filename=img) }}>
         {% endfor %}
         <br>
         <br>
